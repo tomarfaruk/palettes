@@ -2,7 +2,7 @@
   ### project install:
     1. clone project
     2. cd projectname
-    3. run pip install -r requirements/dev.txt
+    3. run pip install -r requirements.txt
     4. run python manage.py makemigratons
     5. run python manage.py migrates
     6. run python manage.py runserver
