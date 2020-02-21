@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    body {
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        background-color: #fdfdfd;
+    }
+
+    .head_text {
+        color: white;
+    }
+
+    .card {
+        box-shadow: 0 16px 48px #E3E7EB;
+    }
+</style>
+
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h3 class=" site-heading my-4 mt-3 text-white"> Welcome to my awesome Blog </h3>
+                    <p class="text-light">We Love Django As much as you do..! &nbsp
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <form action="" method="GET">
+        <input type="text" name="q" id="" placeholder="search" value="{{request.GET.q}}">
+        <input type="button" value="Submit">
+    </form>
+    <div class="row">
+        <!-- palettes Entries Column -->
+
+        {% for palette in palettes %}
+        <div class="col-md-3">
+            <h4 class="color-name text-center">{{ palette.color_name }}</h4>
+            <div class="palette">
+                <div class="palette_color one" style="background-color: #{{ palette.color_domain_one }};">
+                    #{{palette.color_domain_one}}</div>
+                <div class="palette_color two" style="background-color: #{{ palette.color_domain_two }};">
+                    #{{palette.color_domain_two}}</div>
+                <div class="palette_accent one" style="background-color: #{{ palette.color_accent_one }};">
+                    #{{palette.color_accent_one}}</div>
+                <div class="palette_accent two" style="background-color: #{{ palette.color_accent_two }};">
+                    #{{palette.color_accent_two}}</div>
+            </div>
+        </div>
+        {% empty %}
+            <p>No color found</p>
+        {% endfor %}
+
+    </div>
+</div>
+{%endblock%}
